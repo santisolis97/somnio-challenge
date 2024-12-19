@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ShoppingCart from './_components/ShoppingCart';
 import SearchInput from './_components/SearchInput';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -41,7 +42,9 @@ export default function RootLayout({
               height={63}
             />
           </Link>
-          <SearchInput placeholder='Buscar Productos...' />
+          <Suspense fallback={<div>Loading...</div>}>
+            <SearchInput placeholder='Buscar Productos...' />
+          </Suspense>
           <ShoppingCart />
         </nav>
         {children}

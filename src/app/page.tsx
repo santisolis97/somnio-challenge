@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { ProductGrid } from './_components/ProductGrid';
 import { Product } from './_types/Product';
 import { FaExclamationTriangle } from 'react-icons/fa'; // Importing an error icon
@@ -34,5 +35,9 @@ export default async function Home() {
     );
   }
 
-  return <ProductGrid products={products} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductGrid products={products} />;
+    </Suspense>
+  );
 }
