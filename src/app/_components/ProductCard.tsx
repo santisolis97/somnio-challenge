@@ -26,7 +26,11 @@ function ProductCard({ product }: ProductCardProps) {
     >
       <div className='relative w-full h-48'>
         <div className='absolute top-0 left-2 z-10 cursor-pointer'>
-          <CiSquarePlus size={48} onClick={handleAddToCart} />
+          <CiSquarePlus
+            data-testid='addButton'
+            size={48}
+            onClick={handleAddToCart}
+          />
         </div>
 
         <div
